@@ -20,7 +20,8 @@ master = Tk()
 
 # sets the geometry of
 # main root window
-master.geometry("200x200")
+master.geometry("500x500")
+master.title('The main GUI window')
 
 label = Label(master, text="This is the main window")
 label.pack(side=TOP, pady=10)
