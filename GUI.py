@@ -13,6 +13,8 @@ class NewWindow(Toplevel):
         self.geometry("200x200")
         label = Label(self, text="This is a new Window")
         label.pack()
+        label.configure(background='red')
+        self.configure(background='blue')
 
 
 # creates a Tk() object
