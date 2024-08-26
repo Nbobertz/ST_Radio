@@ -3,18 +3,9 @@
 # tkinter and ttk module
 from tkinter import *
 from tkinter.ttk import *
+from window import NewWindow
 
-#the idea is to branch this button out to another ifle where we can listen to a random piece of stalker music from the game and radio stations.
-class NewWindow(Toplevel):
-
-    def __init__(self, master=None):
-        super().__init__(master=master)
-        self.title("New Window")
-        self.geometry("200x200")
-        label = Label(self, text="This is a new Window")
-        label.pack()
-        label.configure(background='red')
-        self.configure(background='blue')
+#the idea is to branch this button out to another ifle where we can listen to a random piece of stalker music from the game and radio stations
 
 
 # creates a Tk() object
