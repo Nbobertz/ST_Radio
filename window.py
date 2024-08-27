@@ -13,8 +13,15 @@ class NewWindow(Toplevel):
         label.pack()
         label.configure(background='red')
         self.configure(background='blue')
-        #use vlc to stream audio from website url
-        with miniaudio.IceCastClient('https://www.radio.net/s/freeukraine') as source:
+
+
+        url = 'https://www.radio.net/s/freeukraine'
+        with miniaudio.IceCastClient(url) as source:
             stream=miniaudio.stream_any(source,source.audio_format)
             with miniaudio.PlaybackDevice() as device:
                 device.start(stream)
+
+        #get around the above error with Selenium browser addon
+
+#https://www.youtube.com/watch?v=S3oPb63TPUY
+#https://www.radio.net/s/freeukraine
