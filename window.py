@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
-import pafy
+import requests
+from playsound import playsound
 
 #the idea is to branch this button out to another ifle where we can listen to a random piece of stalker music from the game and radio stations.
 class NewWindow(Toplevel):
@@ -14,12 +15,17 @@ class NewWindow(Toplevel):
         label.configure(background='red')
         self.configure(background='blue')
 
-        #steram the audio
-        video = pafy.new(url='https://www.youtube.com/watch?v=h4VJGNNSQnw&list=RDMMimBlPXbAv6E&index=3',ydl_opts={'nocheckcertificate':True})
-        print(video)
-        best=video.getbestaudio()
-        stream_urls=best.url
-        print(stream_urls)
+        #play the sound
+        url = 'https://www.youtube.com/watch?v=SCGA38auFIc&t=346s'
+
+        #stream audio
+        with requests.get(url,stream=True) as r:
+            r.raise_for_status()
+            with open("temp_audio.mp3","wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+
+        playsound('temp_audio.mp3')
 
         #get around the above error with Selenium browser addon
 
